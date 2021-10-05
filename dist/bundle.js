@@ -1,0 +1,1 @@
+!function(o,e){"object"==typeof exports&&"object"==typeof module?module.exports=e():"function"==typeof define&&define.amd?define([],e):"object"==typeof exports?exports.Tooltip=e():o.Tooltip=e()}(self,(function(){return o={},console.log("editorjs-tooltip"),o.default;var o}));

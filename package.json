@@ -1,0 +1,57 @@
+{
+  "name": "editorjs-tooltip",
+  "version": "0.1.0",
+  "keywords": [
+    "tool",
+    "tooltip",
+    "editor.js",
+    "editorjs"
+  ],
+  "description": "Tooltip tool for Editor.js",
+  "main": "./dist/bundle.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development --watch",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kommitters/editorjs-tooltip.git"
+  },
+  "author": {
+    "name": "kommitters Open Source",
+    "email": "oss@kommit.co"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kommitters/editorjs-tooltip/issues"
+  },
+  "homepage": "https://github.com/kommitters/editorjs-tooltip#readme",
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "@testing-library/jest-dom": "^5.14.1",
+    "babel-jest": "^27.2.4",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jest": "^24.5.2",
+    "jest": "^27.2.4",
+    "style-loader": "^3.3.0",
+    "svg-inline-loader": "^0.8.2",
+    "webpack": "^5.56.1",
+    "webpack-cli": "^4.8.0"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/test/config/setupTests.js"
+    ],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest",
+      "^.+\\.(css|svg)$": "<rootDir>/test/config/assetsTransform.js"
+    }
+  }
+}
