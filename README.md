@@ -7,7 +7,7 @@ Tooltip for [Editor.js](https://editorjs.io).
 
 ## Notes
 
-- Adds an tooltip as a block element in Editor.js. 
+- Adds an tooltip as a block element in Editor.js.
 - Keyboard shortcut.
 
 ## Installation
@@ -54,6 +54,12 @@ $ yarn build
 ```
 
 2. Commit `dist/bundle.js`
+
+**Run Linter**
+The linter tool will help you by analyzing source code and fix common errors, or by following the style conventions defined.
+```shell
+$ yarn lint
+```
 
 **Run tests**
 ```shell
