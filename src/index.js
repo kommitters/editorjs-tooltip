@@ -21,8 +21,9 @@ export default class Tooltip {
 
   set state(state) {
     this._state = state;
-
-    this.button.classList.toggle(this.api.styles.inlineToolButtonActive, state);
+    const { button } = this;
+    const { inlineToolButtonActive } = this.api.styles;
+    button.classList.toggle(inlineToolButtonActive, state);
   }
 
   static get CSS() {
@@ -49,7 +50,8 @@ export default class Tooltip {
     this.button = document.createElement('button');
     this.button.type = 'button';
     this.button.innerHTML = tooltipIcon;
-    this.button.classList.add(this.api.styles.inlineToolButton);
+    const { inlineToolButton } = this.api.styles;
+    this.button.classList.add(inlineToolButton);
 
     return this.button;
   }
@@ -118,7 +120,10 @@ export default class Tooltip {
     this.spanTooltip = this.api.selection.findParentTag(this.tag);
     this.tooltipInput = document.createElement('input');
     this.tooltipInput.placeholder = 'Add a tooltip';
-    if (this.spanTooltip) this.tooltipInput.value = this.spanTooltip.dataset.tooltip;
+    if (this.spanTooltip) {
+      const tooltipStored = this.spanTooltip.dataset.tooltip;
+      this.tooltipInput.value = tooltipStored;
+    }
     this.tooltipInput.hidden = true;
 
     return this.tooltipInput;
