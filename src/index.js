@@ -1,3 +1,4 @@
+import './index.css';
 import tooltipIcon from '../assets/tooltipIcon.svg';
 
 /**
@@ -40,6 +41,10 @@ export default class Tooltip {
     this.spanTooltip = null;
 
     this.tag = 'SPAN';
+
+    this.CSS = {
+      input: 'tooltip-tool__input'
+    };
   }
   /**
    * render the button in the inline toolbar
@@ -120,6 +125,8 @@ export default class Tooltip {
     this.spanTooltip = this.api.selection.findParentTag(this.tag);
     this.tooltipInput = document.createElement('input');
     this.tooltipInput.placeholder = 'Add a tooltip';
+    this.tooltipInput.classList.add(this.api.styles.input);
+    this.tooltipInput.classList.add(this.CSS.input);
     if (this.spanTooltip) {
       const tooltipStored = this.spanTooltip.dataset.tooltip;
       this.tooltipInput.value = tooltipStored;
