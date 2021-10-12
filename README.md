@@ -23,10 +23,23 @@ Include module at your application
 ## Usage
 
 Add a new Tool to the `tools` property of the Editor.js initial config.
-
+```javascript
+const editor = EditorJS({
+  tools: {
+    tooltip: {
+      class: Tooltip,
+      config: {
+        location: 'left',
+      }
+    }
+  }
+});
+```
 
 ## Config Params
-
+| Field          | Type      | Description                     |
+| -------------- | --------- | ------------------------------- |
+| location          | `{location: string}` | You could choose the tooltip place(top, bottom, left, right). Default value is bottom
 
 ## Tool's tunes
 

@@ -34,11 +34,12 @@ export default class Tooltip {
   /**
    * @param {object} api Editor.js api
    */
-  constructor({ api }) {
+  constructor({ api, config = {} }) {
     this.api = api;
     this.button = null;
     this._state = false;
     this.spanTooltip = null;
+    this.tooltipLocation = config.location === undefined ? 'bottom' : config.location
 
     this.tag = 'SPAN';
 
@@ -145,7 +146,7 @@ export default class Tooltip {
       if (e.key === 'Enter') {
         const tooltipValue = this.tooltipInput.value;
         this.spanTooltip.dataset.tooltip = tooltipValue;
-        this.api.tooltip.onHover(this.spanTooltip, tooltipValue);
+        this.api.tooltip.onHover(this.spanTooltip, tooltipValue, { placement: this.tooltipLocation });
         this.closeToolbar();
       }
     }, false);
