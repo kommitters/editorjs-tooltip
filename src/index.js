@@ -39,12 +39,14 @@ export default class Tooltip {
     this.button = null;
     this._state = false;
     this.spanTooltip = null;
-    this.tooltipLocation = config.location === undefined ? 'bottom' : config.location
+
+    const { location = 'bottom' } = config;
+    this.tooltipLocation = location;
 
     this.tag = 'SPAN';
 
     this.CSS = {
-      input: 'tooltip-tool__input'
+      input: 'tooltip-tool__input',
     };
   }
   /**
@@ -146,7 +148,8 @@ export default class Tooltip {
       if (e.key === 'Enter') {
         const tooltipValue = this.tooltipInput.value;
         this.spanTooltip.dataset.tooltip = tooltipValue;
-        this.api.tooltip.onHover(this.spanTooltip, tooltipValue, { placement: this.tooltipLocation });
+        const { tooltipLocation } = this;
+        this.api.tooltip.onHover(this.spanTooltip, tooltipValue, { placement: tooltipLocation });
         this.closeToolbar();
       }
     }, false);
