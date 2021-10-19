@@ -48,6 +48,32 @@ export default class Tooltip {
     this.CSS = {
       input: 'tooltip-tool__input',
     };
+    this.obtainTooltipsSaved();
+  }
+
+  /**
+   * Obtain the tooltips saved and passed in the EditorJS instance.
+   */
+  obtainTooltipsSaved() {
+    const timer = setInterval(() => {
+      const block = document.querySelector('.ce-block__content');
+      const spanTooltips = document.querySelectorAll('.cdx-tooltip');
+      if (block && spanTooltips.length) {
+        spanTooltips.forEach((span) => this.createTooltip(span.dataset.tooltip, span));
+      }
+      if (block) clearInterval(timer);
+    }, 400);
+  }
+
+  /**
+   * Create the Tooltips with the Tooltip API
+   * @param {String} tooltipValue is the tooltip text
+   * @param {HTMLElement} spanTooltip is the selected text where the tooltip is created
+   */
+  createTooltip(tooltipValue, spanTooltip = this.spanTooltip) {
+    if (this.spanTooltip) this.spanTooltip.dataset.tooltip = tooltipValue;
+    const { tooltipLocation } = this;
+    this.api.tooltip.onHover(spanTooltip, tooltipValue, { placement: tooltipLocation });
   }
   /**
    * render the button in the inline toolbar
@@ -147,9 +173,7 @@ export default class Tooltip {
     this.api.listeners.on(this.tooltipInput, 'keydown', (e) => {
       if (e.key === 'Enter') {
         const tooltipValue = this.tooltipInput.value;
-        this.spanTooltip.dataset.tooltip = tooltipValue;
-        const { tooltipLocation } = this;
-        this.api.tooltip.onHover(this.spanTooltip, tooltipValue, { placement: tooltipLocation });
+        this.createTooltip(tooltipValue);
         this.closeToolbar();
       }
     }, false);
@@ -175,9 +199,7 @@ export default class Tooltip {
   */
   static get sanitize() {
     return {
-      span: {
-        class: Tooltip.CSS,
-      },
+      span: true,
     };
   }
 }
