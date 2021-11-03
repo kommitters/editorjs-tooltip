@@ -13,6 +13,9 @@ const api = {
     },
     findParentTag: function findParentTag() {},
   },
+  tooltip: {
+    onHover: function onHover() {},
+  },
 };
 
 /**
@@ -20,6 +23,8 @@ const api = {
  */
 const config = {
   location: 'right',
+  color: 'red',
+  underline: true,
 };
 
 /**

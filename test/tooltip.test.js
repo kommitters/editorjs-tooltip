@@ -43,4 +43,24 @@ describe('Tooltip', () => {
       expect(tooltip.tooltipLocation).toBe('right');
     });
   });
+
+  describe('validates tooltip background color and underline decoration', () => {
+    it('validates color and underline decoration', () => {
+      document.body.innerHTML = '<h3 id="tooltip">Tooltip text</h3>';
+      tooltip = createTooltipRightPosition();
+
+      const title = document.getElementById('tooltip');
+      const range = document.createRange();
+      range.selectNode(title);
+      tooltip.surround(range);
+      tooltip.createTooltip('Test tooltip');
+
+      const tooltipElement = document.getElementsByClassName('cdx-tooltip')[0];
+
+      expect(tooltipElement).toBeInTheDocument();
+      expect(tooltipElement).toHaveClass('tooltip-tool__span');
+      expect(tooltipElement.firstChild).toHaveClass('tooltip-tool__underline');
+      expect(tooltipElement.firstChild).toHaveStyle('background: red');
+    });
+  });
 });
