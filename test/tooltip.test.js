@@ -58,7 +58,7 @@ describe('Tooltip', () => {
       const tooltipElement = document.getElementsByClassName('cdx-tooltip')[0];
 
       expect(tooltipElement).toBeInTheDocument();
-      expect(tooltipElement).toHaveClass('tooltip-tool__span');
+      expect(tooltipElement.firstChild).toHaveClass('tooltip-tool__span');
       expect(tooltipElement.firstChild).toHaveClass('tooltip-tool__underline');
       expect(tooltipElement.firstChild).toHaveStyle('background: red');
     });

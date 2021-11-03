@@ -152,7 +152,7 @@ export default class Tooltip {
     const selectedText = range.extractContents();
     this.spanTooltip = document.createElement(this.tag);
 
-    this.spanTooltip.classList.add(this.CSS.tooltip, this.CSS.span);
+    this.spanTooltip.classList.add(this.CSS.tooltip);
     this.spanTooltip.appendChild(selectedText);
     range.insertNode(this.spanTooltip);
 
