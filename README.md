@@ -30,6 +30,8 @@ const editor = EditorJS({
       class: Tooltip,
       config: {
         location: 'left',
+        color: '#FFEFD5',
+        underline: true,
       }
     }
   }
@@ -40,7 +42,8 @@ const editor = EditorJS({
 | Field          | Type      | Description                     |
 | -------------- | --------- | ------------------------------- |
 | location          | `{location: string}` | You could choose the tooltip place(top, bottom, left, right). Default value is bottom
-
+| color | `{ color: Hex or string }`|You could choose the background text color wrapped by the tooltip, you could pass hexadecimal colors or string colors
+| underline | `{ underline: boolean }`  | You could add underline text decoration to the text wrapped by the tooltip
 ## Tool's tunes
 
 1. Add a block where you can choose the text in the entire tooltip.
@@ -98,4 +101,3 @@ Made with 💙 by [kommitters Open Source](https://kommit.co)
 [coc]: https://github.com/kommitters/editorjs-tooltip/blob/master/CODE_OF_CONDUCT.md
 [changelog]: https://github.com/kommitters/editorjs-tooltip/blob/master/CHANGELOG.md
 [contributing]: https://github.com/kommitters/editorjs-tooltip/blob/master/CONTRIBUTING.md
-
