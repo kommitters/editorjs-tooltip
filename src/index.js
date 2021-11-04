@@ -27,10 +27,6 @@ export default class Tooltip {
     button.classList.toggle(inlineToolButtonActive, state);
   }
 
-  static get CSS() {
-    return 'cdx-tooltip';
-  }
-
   /**
    * @param {object} api Editor.js api
    */
@@ -42,11 +38,16 @@ export default class Tooltip {
 
     const { location = 'bottom' } = config;
     this.tooltipLocation = location;
+    this.color = config.color;
+    this.underline = config.underline ? config.underline : false;
 
     this.tag = 'SPAN';
 
     this.CSS = {
       input: 'tooltip-tool__input',
+      tooltip: 'cdx-tooltip',
+      span: 'tooltip-tool__span',
+      underline: 'tooltip-tool__underline',
     };
     this.obtainTooltipsSaved();
   }
@@ -71,10 +72,47 @@ export default class Tooltip {
    * @param {HTMLElement} spanTooltip is the selected text where the tooltip is created
    */
   createTooltip(tooltipValue, spanTooltip = this.spanTooltip) {
-    if (this.spanTooltip) this.spanTooltip.dataset.tooltip = tooltipValue;
+    if (this.spanTooltip) {
+      this.spanTooltip.dataset.tooltip = tooltipValue;
+      this.setBackgroundColor(this.spanTooltip);
+      this.setUnderlineDecoration(this.spanTooltip);
+    } else {
+      this.setBackgroundColor(spanTooltip);
+      this.setUnderlineDecoration(spanTooltip);
+    }
     const { tooltipLocation } = this;
     this.api.tooltip.onHover(spanTooltip, tooltipValue, { placement: tooltipLocation });
   }
+
+  /**
+   * Set background-color and span custom class
+   * @param {HTMLElement} spanTooltip is the tooltip element
+   */
+
+  setBackgroundColor(spanTooltip) {
+    const tooltip = spanTooltip;
+    if (tooltip.childElementCount > 0) {
+      tooltip.firstChild.classList.add(this.CSS.span);
+      tooltip.firstChild.style.background = this.color;
+    } else {
+      tooltip.classList.add(this.CSS.span);
+      tooltip.style.background = this.color;
+    }
+  }
+  /**
+   * Set underline class
+   * @param {HTMLElement} spanTooltip is the tooltip element
+   */
+
+  setUnderlineDecoration(spanTooltip) {
+    const tooltip = spanTooltip;
+    if (this.underline) {
+      (tooltip.childElementCount > 0)
+        ? tooltip.firstChild.classList.add(this.CSS.underline)
+        : tooltip.classList.add(this.CSS.underline);
+    }
+  }
+
   /**
    * render the button in the inline toolbar
    * @returns the button element created to the inline toolbar
@@ -114,7 +152,7 @@ export default class Tooltip {
     const selectedText = range.extractContents();
     this.spanTooltip = document.createElement(this.tag);
 
-    this.spanTooltip.classList.add(Tooltip.CSS);
+    this.spanTooltip.classList.add(this.CSS.tooltip);
     this.spanTooltip.appendChild(selectedText);
     range.insertNode(this.spanTooltip);
 
@@ -126,7 +164,7 @@ export default class Tooltip {
    * @param {object} range is an object with info about the selected text
    */
   unwrap(range) {
-    this.spanTooltip = this.api.selection.findParentTag(this.tag, Tooltip.CSS);
+    this.spanTooltip = this.api.selection.findParentTag(this.tag, this.CSS.tooltip);
     const text = range.extractContents();
 
     this.spanTooltip.remove();

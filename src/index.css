@@ -3,3 +3,12 @@
   border-radius: 0 0 4px 4px;
   border-top: 1px solid rgba(201,201,204,.48);
 }
+
+.tooltip-tool__span{
+  padding: 3px;
+  border-radius: 6px;
+}
+
+.tooltip-tool__underline{
+  text-decoration: underline;
+}
