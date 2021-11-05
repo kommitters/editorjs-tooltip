@@ -237,7 +237,10 @@ export default class Tooltip {
   */
   static get sanitize() {
     return {
-      span: true,
+      span: (e) => {
+        e.classList.remove('tooltip-tool__span', 'tooltip-tool__underline');
+        return { class: true, 'data-tooltip': true };
+      },
     };
   }
 }
