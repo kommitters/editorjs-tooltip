@@ -1,28 +1,35 @@
 ![](https://badgen.net/badge/Editor.js/v2.0/blue)
 
-# EditorJS Tooltip Tool
+# EditorJS Tooltip Inline-tool
 
 Tooltip for [Editor.js](https://editorjs.io).
 
-
+![](assets/demo.gif)
 ## Notes
 
-- Adds an tooltip as a block element in Editor.js.
-- Keyboard shortcut.
+- Adds a tooltip as an inline-tool in Editor.js.
+- Custom styles to the selected text.
+- Custom tooltip location.
 
 ## Installation
 
 ### Install via NPM
 Get the package
+
 ```shell
-$ npm i --save-dev editorjs-
+$ npm i --save-dev editorjs-tooltip
 ```
 
 Include module at your application
 
+```javascript
+import Tooltip from 'editorjs-tooltip';
+```
+
 ## Usage
 
 Add a new Tool to the `tools` property of the Editor.js initial config.
+
 ```javascript
 const editor = EditorJS({
   tools: {
@@ -30,28 +37,35 @@ const editor = EditorJS({
       class: Tooltip,
       config: {
         location: 'left',
+        color: '#FFEFD5',
+        underline: true,
       }
     }
   }
 });
 ```
+Select some text, click on the tooltip button in the inline-tools bar, and type the tooltip in the input, when the key enter is pressed, the tooltip will be created.
 
 ## Config Params
+
 | Field          | Type      | Description                     |
 | -------------- | --------- | ------------------------------- |
 | location          | `{location: string}` | You could choose the tooltip place(top, bottom, left, right). Default value is bottom
-
-## Tool's tunes
-
-1. Add a block where you can choose the text in the entire tooltip.
+| color | `{ color: Hex or string }`|You could choose the background text color wrapped by the tooltip, you could pass hexadecimal colors or string colors
+| underline | `{ underline: boolean }`  | You could add underline text decoration to the text wrapped by the tooltip
 
 ## Output data
 
-| Field          | Type      | Description                     |
-| -------------- | --------- | ------------------------------- |
+Selected text will be wrapped in a span tag with a cdx-tooltip class and with a data-tooltip, it contains the tooltip text.
 
-**Data**
-
+```json
+{
+    "type" : "text",
+    "data" : {
+        "text" : "It is a text to the <span class=\"cdx-tooltip\" data-tooltip =\"tooltip\" >tooltip</span> inline-tool."
+    }
+}
+```
 
 ## Development
 
@@ -71,7 +85,7 @@ $ yarn build
 **Run Linter**
 The linter tool will help you by analyzing source code and fix common errors, or by following the style conventions defined.
 ```shell
-$ yarn lint
+$ yarn lint .
 ```
 
 **Run tests**
@@ -98,4 +112,3 @@ Made with 💙 by [kommitters Open Source](https://kommit.co)
 [coc]: https://github.com/kommitters/editorjs-tooltip/blob/master/CODE_OF_CONDUCT.md
 [changelog]: https://github.com/kommitters/editorjs-tooltip/blob/master/CHANGELOG.md
 [contributing]: https://github.com/kommitters/editorjs-tooltip/blob/master/CONTRIBUTING.md
-
