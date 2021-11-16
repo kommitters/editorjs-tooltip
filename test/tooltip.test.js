@@ -8,7 +8,7 @@ describe('Tooltip', () => {
 
   describe('validates panel components', () => {
     beforeEach(() => {
-      document.body.innerHTML = '<h3 id="tooltip">Tooltip text</h3>';
+      document.body.innerHTML = '<div id= "editorjs"><h3 id="tooltip">Tooltip text</h3></div>';
       tooltip = createTooltip();
     });
 
@@ -46,7 +46,7 @@ describe('Tooltip', () => {
 
   describe('validates tooltip background color and underline decoration', () => {
     it('validates color and underline decoration', () => {
-      document.body.innerHTML = '<h3 id="tooltip">Tooltip text</h3>';
+      document.body.innerHTML = '<div id= "editorjs"><h3 id="tooltip">Tooltip text</h3></div>';
       tooltip = createTooltipRightPosition();
 
       const title = document.getElementById('tooltip');
