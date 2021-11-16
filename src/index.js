@@ -49,21 +49,26 @@ export default class Tooltip {
       span: 'tooltip-tool__span',
       underline: 'tooltip-tool__underline',
     };
-    this.obtainTooltipsSaved();
+    this.tooltipsObserver();
   }
 
   /**
-   * Obtain the tooltips saved and passed in the EditorJS instance.
+   * Observe if some tooltip span is inserted and create the respective tooltip
    */
-  obtainTooltipsSaved() {
-    const timer = setInterval(() => {
-      const block = document.querySelector('.ce-block__content');
-      const spanTooltips = document.querySelectorAll('.cdx-tooltip');
-      if (block && spanTooltips.length) {
-        spanTooltips.forEach((span) => this.createTooltip(span.dataset.tooltip, span));
-      }
-      if (block) clearInterval(timer);
-    }, 400);
+  tooltipsObserver() {
+    const holder = document.getElementById('editorjs');
+    const observer = new MutationObserver((mutationList) => {
+      mutationList.forEach((mutation) => {
+        if (mutation.type === 'childList'
+        && mutation.target.classList.contains('codex-editor__redactor')) {
+          const spanTooltips = document.querySelectorAll('.cdx-tooltip');
+
+          spanTooltips.forEach((span) => this.createTooltip(span.dataset.tooltip, span));
+        }
+      });
+    });
+
+    observer.observe(holder, { childList: true, subtree: true });
   }
 
   /**
