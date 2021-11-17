@@ -12,3 +12,7 @@
 .tooltip-tool__underline{
   text-decoration: underline;
 }
+
+.cdx-tooltip {
+  display: inline-block;
+}
