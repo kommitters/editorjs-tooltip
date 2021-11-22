@@ -10,6 +10,7 @@ Tooltip for [Editor.js](https://editorjs.io).
 - Adds a tooltip as an inline-tool in Editor.js.
 - Custom styles to the selected text.
 - Custom tooltip location.
+- Custom styles to the tooltips.
 
 ## Installation
 
@@ -39,6 +40,8 @@ const editor = EditorJS({
         location: 'left',
         color: '#FFEFD5',
         underline: true,
+        tooltipColor: '#154360',
+        tooltipTextColor: '#FDFEFE',
       }
     }
   }
@@ -53,6 +56,8 @@ Select some text, click on the tooltip button in the inline-tools bar, and type 
 | location          | `{location: string}` | You could choose the tooltip place(top, bottom, left, right). Default value is bottom
 | color | `{ color: Hex or string }`|You could choose the background text color wrapped by the tooltip, you could pass hexadecimal colors or string colors
 | underline | `{ underline: boolean }`  | You could add underline text decoration to the text wrapped by the tooltip
+| tooltipColor | `{ tooltipColor: string }`  | You could choose the tooltip color, you could pass hexadecimal colors or string colors
+| tooltipTextColor | `{ tooltipTextColor: string }`  | You could choose the tooltip text color, you could pass hexadecimal colors or string colors
 
 ## Output data
 
