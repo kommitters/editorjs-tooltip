@@ -25,6 +25,8 @@ const config = {
   location: 'right',
   color: 'red',
   underline: true,
+  tooltipColor: 'blue',
+  tooltipTextColor: 'white',
 };
 
 /**
