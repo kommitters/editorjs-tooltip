@@ -24,3 +24,7 @@
 .tooltip-text-color {
   color: transparent;
 }
+
+.cdx-tooltip {
+  display: inline-block;
+}
