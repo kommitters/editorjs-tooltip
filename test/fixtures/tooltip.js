@@ -23,10 +23,10 @@ const api = {
  */
 const config = {
   location: 'right',
-  color: 'red',
+  highlightColor: 'red',
   underline: true,
-  tooltipColor: 'blue',
-  tooltipTextColor: 'white',
+  backgroundColor: 'blue',
+  textColor: 'white',
 };
 
 /**
