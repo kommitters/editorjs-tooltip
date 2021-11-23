@@ -5,10 +5,14 @@ import { createTooltip, createTooltipRightPosition } from './fixtures/tooltip';
 
 describe('Tooltip', () => {
   let tooltip;
+  beforeEach(() => {
+    document.body.innerHTML = `<div id= "editorjs"><span id="tooltip">Tooltip text</span></div>
+                               <div class= "ct tooltip-color ct--right ct--shown">
+                               <div class= "ct__content tooltip-text-color">tooltip</div></div>`;
+  });
 
   describe('validates panel components', () => {
     beforeEach(() => {
-      document.body.innerHTML = '<h3 id="tooltip">Tooltip text</h3>';
       tooltip = createTooltip();
     });
 
@@ -46,7 +50,6 @@ describe('Tooltip', () => {
 
   describe('validates tooltip background color and underline decoration', () => {
     it('validates color and underline decoration', () => {
-      document.body.innerHTML = '<h3 id="tooltip">Tooltip text</h3>';
       tooltip = createTooltipRightPosition();
 
       const title = document.getElementById('tooltip');

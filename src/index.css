@@ -12,3 +12,19 @@
 .tooltip-tool__underline{
   text-decoration: underline;
 }
+
+.tooltip-color::before {
+  background-color: transparent;
+}
+
+.tooltip-color::after {
+  background-color: transparent;
+}
+
+.tooltip-text-color {
+  color: transparent;
+}
+
+.cdx-tooltip {
+  display: inline-block;
+}
