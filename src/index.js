@@ -38,8 +38,10 @@ export default class Tooltip {
 
     const { location = 'bottom' } = config;
     this.tooltipLocation = location;
-    this.color = config.color;
+    this.highlightColor = config.highlightColor;
     this.underline = config.underline ? config.underline : false;
+    this.backgroundColor = config.backgroundColor;
+    this.textColor = config.textColor;
 
     this.tag = 'SPAN';
 
@@ -50,6 +52,78 @@ export default class Tooltip {
       underline: 'tooltip-tool__underline',
     };
     this.tooltipsObserver();
+    if (this.backgroundColor || this.textColor) this.customTooltip();
+  }
+
+  /**
+   * Customize the tooltips style with data passed in the config object
+   * implementing a Mutation Observer in the dynamic tooltip tag.
+   */
+
+  customTooltip() {
+    const tooltipTag = document.querySelector('.ct');
+    const tooltipContent = document.querySelector('.ct__content');
+    const observer = new MutationObserver((mutationList) => {
+      mutationList.forEach((mutation) => {
+        if (mutation.type === 'childList') {
+          const content = tooltipContent.textContent;
+          if (document.querySelector(`[data-tooltip="${content}"]`)) {
+            if (this.backgroundColor) this.setTooltipColor();
+            if (this.textColor) this.setTooltipTextColor();
+          } else {
+            tooltipTag.classList.remove('tooltip-color');
+            tooltipContent.classList.remove('tooltip-text-color');
+          }
+        }
+      });
+    });
+
+    observer.observe(tooltipContent, { childList: true });
+  }
+
+  /**
+   * Search the editorjs-tooltip style sheet
+   * @returns the editorjs-tooltip style sheet
+   */
+  tooltipSheet() {
+    const sheetsList = document.styleSheets;
+    const sheets = Object.values(sheetsList);
+    return sheets.filter((sheet) => sheet.ownerNode.id === 'editorjs-tooltip');
+  }
+
+  /**
+   * Search for the cssRules of the selector passed
+   * @param {string} selector is the CSS selector required
+   * @returns the cssRules from the selector
+   */
+  tooltipCssRule(selector) {
+    const tooltipSheet = this.tooltipSheet();
+    const cssRules = Object.values(tooltipSheet[0].cssRules);
+    return cssRules.filter((cssRule) => cssRule.selectorText === selector);
+  }
+
+  /**
+   * Set the tooltip color using the cssRules to overwrite the rules
+   */
+  setTooltipColor() {
+    const tooltipTag = document.querySelector('.ct');
+    const beforeTooltip = this.tooltipCssRule('.tooltip-color::before');
+    const afterTooltip = this.tooltipCssRule('.tooltip-color::after');
+
+    beforeTooltip[0].style.setProperty('background-color', this.backgroundColor);
+    afterTooltip[0].style.setProperty('background-color', this.backgroundColor);
+    tooltipTag.classList.add('tooltip-color');
+  }
+
+  /**
+   * Set the tooltip text color.
+   */
+  setTooltipTextColor() {
+    const textColor = this.tooltipCssRule('.tooltip-text-color');
+    const tooltipContent = document.querySelector('.ct__content');
+
+    textColor[0].style.setProperty('color', this.textColor);
+    tooltipContent.classList.add('tooltip-text-color');
   }
 
   /**
@@ -98,10 +172,10 @@ export default class Tooltip {
     const tooltip = spanTooltip;
     if (tooltip.childElementCount > 0) {
       tooltip.firstChild.classList.add(this.CSS.span);
-      tooltip.firstChild.style.background = this.color;
+      tooltip.firstChild.style.background = this.highlightColor;
     } else {
       tooltip.classList.add(this.CSS.span);
-      tooltip.style.background = this.color;
+      tooltip.style.background = this.highlightColor;
     }
   }
   /**
