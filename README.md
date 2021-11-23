@@ -38,10 +38,10 @@ const editor = EditorJS({
       class: Tooltip,
       config: {
         location: 'left',
-        color: '#FFEFD5',
+        highlightColor: '#FFEFD5',
         underline: true,
-        tooltipColor: '#154360',
-        tooltipTextColor: '#FDFEFE',
+        backgroundColor: '#154360',
+        textColor: '#FDFEFE',
       }
     }
   }
@@ -54,10 +54,10 @@ Select some text, click on the tooltip button in the inline-tools bar, and type 
 | Field          | Type      | Description                     |
 | -------------- | --------- | ------------------------------- |
 | location          | `{location: string}` | You could choose the tooltip place(top, bottom, left, right). Default value is bottom
-| color | `{ color: Hex or string }`|You could choose the background text color wrapped by the tooltip, you could pass hexadecimal colors or string colors
+| highlightColor | `{ highlightColor: Hex or string }`|You could choose the background text color wrapped by the tooltip, you could pass hexadecimal colors or string colors
 | underline | `{ underline: boolean }`  | You could add underline text decoration to the text wrapped by the tooltip
-| tooltipColor | `{ tooltipColor: string }`  | You could choose the tooltip color, you could pass hexadecimal colors or string colors
-| tooltipTextColor | `{ tooltipTextColor: string }`  | You could choose the tooltip text color, you could pass hexadecimal colors or string colors
+| backgroundColor | `{ backgroundColor: string }`  | You could choose the tooltip color, you could pass hexadecimal colors or string colors
+| textColor | `{ textColor: string }`  | You could choose the tooltip text color, you could pass hexadecimal colors or string colors
 
 ## Output data
 

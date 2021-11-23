@@ -38,10 +38,10 @@ export default class Tooltip {
 
     const { location = 'bottom' } = config;
     this.tooltipLocation = location;
-    this.color = config.color;
+    this.highlightColor = config.highlightColor;
     this.underline = config.underline ? config.underline : false;
-    this.tooltipColor = config.tooltipColor;
-    this.tooltipTextColor = config.tooltipTextColor;
+    this.backgroundColor = config.backgroundColor;
+    this.textColor = config.textColor;
 
     this.tag = 'SPAN';
 
@@ -52,7 +52,7 @@ export default class Tooltip {
       underline: 'tooltip-tool__underline',
     };
     this.tooltipsObserver();
-    if (this.tooltipColor || this.tooltipTextColor) this.customTooltip();
+    if (this.backgroundColor || this.textColor) this.customTooltip();
   }
 
   /**
@@ -68,8 +68,8 @@ export default class Tooltip {
         if (mutation.type === 'childList') {
           const content = tooltipContent.textContent;
           if (document.querySelector(`[data-tooltip="${content}"]`)) {
-            if (this.tooltipColor) this.setTooltipColor();
-            if (this.tooltipTextColor) this.setTooltipTextColor();
+            if (this.backgroundColor) this.setTooltipColor();
+            if (this.textColor) this.setTooltipTextColor();
           } else {
             tooltipTag.classList.remove('tooltip-color');
             tooltipContent.classList.remove('tooltip-text-color');
@@ -110,8 +110,8 @@ export default class Tooltip {
     const beforeTooltip = this.tooltipCssRule('.tooltip-color::before');
     const afterTooltip = this.tooltipCssRule('.tooltip-color::after');
 
-    beforeTooltip[0].style.setProperty('background-color', this.tooltipColor);
-    afterTooltip[0].style.setProperty('background-color', this.tooltipColor);
+    beforeTooltip[0].style.setProperty('background-color', this.backgroundColor);
+    afterTooltip[0].style.setProperty('background-color', this.backgroundColor);
     tooltipTag.classList.add('tooltip-color');
   }
 
@@ -122,7 +122,7 @@ export default class Tooltip {
     const textColor = this.tooltipCssRule('.tooltip-text-color');
     const tooltipContent = document.querySelector('.ct__content');
 
-    textColor[0].style.setProperty('color', this.tooltipTextColor);
+    textColor[0].style.setProperty('color', this.textColor);
     tooltipContent.classList.add('tooltip-text-color');
   }
 
@@ -172,10 +172,10 @@ export default class Tooltip {
     const tooltip = spanTooltip;
     if (tooltip.childElementCount > 0) {
       tooltip.firstChild.classList.add(this.CSS.span);
-      tooltip.firstChild.style.background = this.color;
+      tooltip.firstChild.style.background = this.highlightColor;
     } else {
       tooltip.classList.add(this.CSS.span);
-      tooltip.style.background = this.color;
+      tooltip.style.background = this.highlightColor;
     }
   }
   /**
