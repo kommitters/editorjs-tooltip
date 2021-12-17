@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.1 (07.12.2021)
+* Reduce the gif size
+
 ## 1.1.0 (23.11.2021)
 
 * Customize the background color and the text color in the tooltips.
