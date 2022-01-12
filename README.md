@@ -42,12 +42,15 @@ const editor = EditorJS({
         underline: true,
         backgroundColor: '#154360',
         textColor: '#FDFEFE',
+        holder: 'editorId',
       }
     }
   }
 });
 ```
 Select some text, click on the tooltip button in the inline-tools bar, and type the tooltip in the input, when the key enter is pressed, the tooltip will be created.
+
+**Note:** Use the holder field to indicate the EditorJS Id passed in the div tag, by default the holder field is 'editorjs'. 
 
 ## Config Params
 
@@ -58,6 +61,7 @@ Select some text, click on the tooltip button in the inline-tools bar, and type 
 | underline | `{ underline: boolean }`  | You could add underline text decoration to the text wrapped by the tooltip
 | backgroundColor | `{ backgroundColor: string }`  | You could choose the tooltip color, you could pass hexadecimal colors or string colors
 | textColor | `{ textColor: string }`  | You could choose the tooltip text color, you could pass hexadecimal colors or string colors
+| holder | `{ holder: string }`  | If your EditorJS Id passed in the Editor tag is different from 'editorjs', use the holder field.
 
 ## Output data
 

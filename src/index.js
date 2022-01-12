@@ -42,6 +42,7 @@ export default class Tooltip {
     this.underline = config.underline ? config.underline : false;
     this.backgroundColor = config.backgroundColor;
     this.textColor = config.textColor;
+    this.editorId = config.holder ? config.holder : 'editorjs';
 
     this.tag = 'SPAN';
 
@@ -130,7 +131,7 @@ export default class Tooltip {
    * Observe if some tooltip span is inserted and create the respective tooltip
    */
   tooltipsObserver() {
-    const holder = document.getElementById('editorjs');
+    const holder = document.getElementById(this.editorId);
     const observer = new MutationObserver((mutationList) => {
       mutationList.forEach((mutation) => {
         if (mutation.type === 'childList'
