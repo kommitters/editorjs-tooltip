@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.2 (18.01.2022)
+* set the plugin to recognize any editor Id
+
 ## 1.1.1 (07.12.2021)
 * Reduce the gif size
 

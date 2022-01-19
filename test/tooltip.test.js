@@ -7,8 +7,8 @@ describe('Tooltip', () => {
   let tooltip;
   beforeEach(() => {
     document.body.innerHTML = `<div id= "editorjs"><span id="tooltip">Tooltip text</span></div>
-                               <div class= "ct tooltip-color ct--right ct--shown">
-                               <div class= "ct__content tooltip-text-color">tooltip</div></div>`;
+                              <div class= "ct tooltip-color ct--right ct--shown">
+                              <div class= "ct__content tooltip-text-color">tooltip</div></div>`;
   });
 
   describe('validates panel components', () => {
@@ -41,14 +41,23 @@ describe('Tooltip', () => {
     });
   });
 
-  describe('validates tooltip position', () => {
+  describe('validates config parameters', () => {
+    beforeEach(() => {
+      document.body.innerHTML = `<div id= "editorjs2"><span id="tooltip">Tooltip text</span></div>
+                                <div class= "ct tooltip-color ct--right ct--shown">
+                                <div class= "ct__content tooltip-text-color">tooltip</div></div>`;
+    });
+
     it('validates position', () => {
       tooltip = createTooltipRightPosition();
       expect(tooltip.tooltipLocation).toBe('right');
     });
-  });
 
-  describe('validates tooltip background color and underline decoration', () => {
+    it('validates holder', () => {
+      tooltip = createTooltipRightPosition();
+      expect(tooltip.editorId).toBe('editorjs2');
+    });
+
     it('validates color and underline decoration', () => {
       tooltip = createTooltipRightPosition();
 
