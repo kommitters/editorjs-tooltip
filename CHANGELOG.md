@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.3 (28.01.2022)
+* Updated packages with known security breaches.
+
 ## 1.1.2 (18.01.2022)
 * set the plugin to recognize any editor Id
 
