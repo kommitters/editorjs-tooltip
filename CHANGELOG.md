@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.4 (14.07.2022)
+* Updated yarn.lock packages to fix security vulnerabilities.
+
 ## 1.1.3 (28.01.2022)
 * Updated packages with known security breaches.
 
