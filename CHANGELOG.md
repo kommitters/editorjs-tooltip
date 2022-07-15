@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.5 (15.07.2022)
+* Add workflow for automatic publishing in npm.
+
 ## 1.1.4 (14.07.2022)
 * Updated yarn.lock packages to fix security vulnerabilities.
 
