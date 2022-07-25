@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.1.5 (25.07.2022)
+## 1.1.6 (25.07.2022)
 
 - Add security policy to the repository
 
