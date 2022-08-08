@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.7 (08.08.2022)
+
+- Add scorecards actions
+
 ## 1.1.6 (25.07.2022)
 
 - Add security policy to the repository
