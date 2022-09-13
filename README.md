@@ -1,6 +1,8 @@
-![](https://badgen.net/badge/Editor.js/v2.0/blue)
 
 # EditorJS Tooltip Inline-tool
+![](https://badgen.net/badge/Editor.js/v2.0/blue)
+[![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/6470/badge)](https://bestpractices.coreinfrastructure.org/projects/6470)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/kommitters/editorjs-tooltip/badge)](https://api.securityscorecards.dev/projects/github.com/kommitters/editorjs-tooltip)
 
 Tooltip for [Editor.js](https://editorjs.io).
 
@@ -27,6 +29,16 @@ Include module at your application
 import Tooltip from 'editorjs-tooltip';
 ```
 
+### Load from CDN
+
+You can load a specific version of the package from [jsDelivr CDN](https://www.jsdelivr.com/package/npm/editorjs-tooltip).
+
+Require this script on a page with Editor.js.
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/editorjs-tooltip"></script>
+```
+
 ## Usage
 
 Add a new Tool to the `tools` property of the Editor.js initial config.
@@ -50,7 +62,7 @@ const editor = EditorJS({
 ```
 Select some text, click on the tooltip button in the inline-tools bar, and type the tooltip in the input, when the key enter is pressed, the tooltip will be created.
 
-**Note:** Use the holder field to indicate the EditorJS Id passed in the div tag, by default the holder field is 'editorjs'. 
+**Note:** Use the holder field to indicate the EditorJS Id passed in the div tag, by default the holder field is 'editorjs'.
 
 ## Config Params
 
