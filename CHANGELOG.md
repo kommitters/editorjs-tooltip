@@ -1,12 +1,17 @@
 # Changelog
 
+## 1.1.8 (13.09.2022)
+
+* Add OpenSSF BestPractices & Scorecard badges.
+* Add CDN version documentation.
+
 ## 1.1.7 (08.08.2022)
 
-- Add scorecards actions
+* Add scorecards actions
 
 ## 1.1.6 (25.07.2022)
 
-- Add security policy to the repository
+* Add security policy to the repository
 
 ## 1.1.5 (15.07.2022)
 * Add workflow for automatic publishing in npm.
