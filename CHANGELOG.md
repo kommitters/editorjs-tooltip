@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.10 (27.10.2022)
+
+* Bump ossf/scorecard-action to v2.0.6.
+
 ## 1.1.9 (26.10.2022)
 
 * Added Coverage Report with Coveralls.
