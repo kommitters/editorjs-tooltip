@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.11 (23.12.2022)
+
+* Harden GitHub Actions.
+* Bump loader-utils from 1.4.0 to 1.4.2.
+* Bump decode-uri-component from 0.2.0 to 0.2.2.
+
 ## 1.1.10 (27.10.2022)
 
 * Bump ossf/scorecard-action to v2.0.6.
