@@ -1,5 +1,6 @@
-
 # EditorJS Tooltip Inline-tool
+
+![stability-stable](https://img.shields.io/badge/stability-stable-green.svg)
 ![](https://badgen.net/badge/Editor.js/v2.0/blue)
 [![Coverage Status](https://coveralls.io/repos/github/kommitters/editorjs-tooltip/badge.svg)](https://coveralls.io/github/kommitters/editorjs-tooltip)
 [![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/6470/badge)](https://bestpractices.coreinfrastructure.org/projects/6470)
