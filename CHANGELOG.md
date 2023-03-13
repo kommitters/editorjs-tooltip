@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.14 (13.03.2023)
+
+* Update all dependencies.
+* Fix bug: Doesn't work with EditorJS 2.26.5.
+
 ## 1.1.13 (13.01.2023)
 
 * Update all dependencies.
