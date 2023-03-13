@@ -27,6 +27,7 @@ const config = {
   underline: true,
   backgroundColor: 'blue',
   textColor: 'white',
+  holder: 'editorjs2',
 };
 
 /**
