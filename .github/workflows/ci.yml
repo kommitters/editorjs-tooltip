@@ -33,3 +33,4 @@ jobs:
       uses: coverallsapp/github-action@045a25193560dc194e405657f552faeb6b9433aa # v2.1.0
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+        format: lcov
