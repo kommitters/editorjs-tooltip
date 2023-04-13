@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.15 (13.04.2023)
+
+* Update all dependencies.
+* Fix bug: Custom holder isn't working.
+
 ## 1.1.14 (13.03.2023)
 
 * Update all dependencies.
