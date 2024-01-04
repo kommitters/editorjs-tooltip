@@ -43,6 +43,7 @@ export default class Tooltip {
     this.backgroundColor = config.backgroundColor;
     this.textColor = config.textColor;
     this.editorId = config.holder ? config.holder : 'editorjs';
+    this.inputPlaceholder = config.placeholder ? config.placeholder : "Add a tooltip";
 
     this.tag = 'SPAN';
 
@@ -271,7 +272,7 @@ export default class Tooltip {
   renderActions() {
     this.spanTooltip = this.api.selection.findParentTag(this.tag);
     this.tooltipInput = document.createElement('input');
-    this.tooltipInput.placeholder = 'Add a tooltip';
+    this.tooltipInput.placeholder = this.inputPlaceholder;
     this.tooltipInput.classList.add(this.api.styles.input);
     this.tooltipInput.classList.add(this.CSS.input);
     if (this.spanTooltip) {
