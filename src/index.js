@@ -43,7 +43,7 @@ export default class Tooltip {
     this.backgroundColor = config.backgroundColor;
     this.textColor = config.textColor;
     this.editorId = config.holder ? config.holder : 'editorjs';
-    this.inputPlaceholder = config.placeholder ? config.placeholder : "Add a tooltip";
+    this.placeholder = config.placeholder ?? 'Add a tooltip';
 
     this.tag = 'SPAN';
 
