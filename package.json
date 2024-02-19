@@ -31,7 +31,7 @@
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
-    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/jest-dom": "^6.0.0",
     "babel-jest": "^29.0.0",
     "babel-loader": "^9.0.0",
     "css-loader": "^6.5.1",
