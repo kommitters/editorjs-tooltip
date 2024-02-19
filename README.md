@@ -52,8 +52,9 @@ const editor = EditorJS({
       class: Tooltip,
       config: {
         location: 'left',
-        highlightColor: '#FFEFD5',
         underline: true,
+        placeholder: 'Enter a tooltip'
+        highlightColor: '#FFEFD5',
         backgroundColor: '#154360',
         textColor: '#FDFEFE',
         holder: 'editorId',
@@ -68,14 +69,15 @@ Select some text, click on the tooltip button in the inline-tools bar, and type 
 
 ## Config Params
 
-| Field          | Type      | Description                     |
-| -------------- | --------- | ------------------------------- |
-| location          | `{location: string}` | You could choose the tooltip place(top, bottom, left, right). Default value is bottom
-| highlightColor | `{ highlightColor: Hex or string }`|You could choose the background text color wrapped by the tooltip, you could pass hexadecimal colors or string colors
-| underline | `{ underline: boolean }`  | You could add underline text decoration to the text wrapped by the tooltip
-| backgroundColor | `{ backgroundColor: string }`  | You could choose the tooltip color, you could pass hexadecimal colors or string colors
-| textColor | `{ textColor: string }`  | You could choose the tooltip text color, you could pass hexadecimal colors or string colors
-| holder | `{ holder: string }`  | If your EditorJS Id passed in the Editor tag is different from 'editorjs', use the holder field.
+| Field | Type | Description |
+| -------- | -------- | -------- |
+| `location`     | String (`top`, `bottom`, `left`, `right`) | Where to place the tooltip. Default value is `bottom`. |
+| `underline`     | Boolean | Add underline text decoration to the text wrapped by the tooltip. Default is `false`. |
+| `placeholder`     | String | Placeholder text for the tooltip input. Default is 'Add a tooltip'. |
+| `highlightColor`     | String or Hexadecimal | Background color of the text wrapped by the tooltip. |
+| `backgroundColor`     | String or Hexadecimal | Background color of the tooltip container. |
+| `textColor`     | String or Hexadecimal | Text color of the tooltip. |
+| `holder`     | String | ID of the HTML element that contains the EditorJS instance. Default is 'editorjs'. |
 
 ## Output data
 
