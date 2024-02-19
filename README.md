@@ -53,7 +53,7 @@ const editor = EditorJS({
       config: {
         location: 'left',
         underline: true,
-        placeholder: 'Enter a tooltip'
+        placeholder: 'Enter a tooltip',
         highlightColor: '#FFEFD5',
         backgroundColor: '#154360',
         textColor: '#FDFEFE',
