@@ -23,8 +23,9 @@ const api = {
  */
 const config = {
   location: 'right',
-  highlightColor: 'red',
   underline: true,
+  placeholder: 'Enter a tooltip',
+  highlightColor: 'red',
   backgroundColor: 'blue',
   textColor: 'white',
   holder: 'editorjs2',
@@ -38,10 +39,10 @@ const createTooltip = (data) => new Tooltip({
   api,
 });
 
-const createTooltipRightPosition = (data) => new Tooltip({
+const createCustomizedTooltip = (data) => new Tooltip({
   data,
   api,
   config,
 });
 
-export { createTooltip, createTooltipRightPosition };
+export { createTooltip, createCustomizedTooltip };

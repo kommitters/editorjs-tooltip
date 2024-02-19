@@ -10,4 +10,7 @@ module.exports = {
     browser: true,
     'jest/globals': true,
   },
+  parserOptions: {
+    ecmaVersion: 2020,
+  },
 };
