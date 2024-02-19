@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { createTooltip, createTooltipRightPosition } from './fixtures/tooltip';
+import { createTooltip, createCustomizedTooltip } from './fixtures/tooltip';
 
 describe('Tooltip', () => {
   let tooltip;
@@ -49,17 +49,17 @@ describe('Tooltip', () => {
     });
 
     it('validates position', () => {
-      tooltip = createTooltipRightPosition();
+      tooltip = createCustomizedTooltip();
       expect(tooltip.tooltipLocation).toBe('right');
     });
 
     it('validates holder', () => {
-      tooltip = createTooltipRightPosition();
+      tooltip = createCustomizedTooltip();
       expect(tooltip.editorId).toBe('editorjs2');
     });
 
     it('validates color and underline decoration', () => {
-      tooltip = createTooltipRightPosition();
+      tooltip = createCustomizedTooltip();
 
       const title = document.getElementById('tooltip');
       const range = document.createRange();
@@ -73,6 +73,12 @@ describe('Tooltip', () => {
       expect(tooltipElement.firstChild).toHaveClass('tooltip-tool__span');
       expect(tooltipElement.firstChild).toHaveClass('tooltip-tool__underline');
       expect(tooltipElement.firstChild).toHaveStyle('background: red');
+    });
+
+    it('validates placeholder', () => {
+      const input = createCustomizedTooltip().renderActions();
+      expect(input).toHaveClass('tooltip-tool__input');
+      expect(input.placeholder).toBe('Enter a tooltip');
     });
   });
 });
