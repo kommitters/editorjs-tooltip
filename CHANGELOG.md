@@ -2,7 +2,7 @@
 
 ## 1.2.0 (19.02.2024)
 
-* Add a new, optional `placeholder` configuration param to the plugin. Default value is `Add a tooltip`.
+* Add a new optional `placeholder` configuration param to the plugin. Default value is `Add a tooltip`.
 * Update all dependencies.
 
 ## 1.1.15 (13.04.2023)
