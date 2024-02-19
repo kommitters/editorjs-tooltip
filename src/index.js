@@ -100,7 +100,6 @@ export default class Tooltip {
    */
   tooltipCssRule(selector) {
     const tooltipSheet = this.tooltipSheet();
-    console.log('tooltipSheet', tooltipSheet);
     const cssRules = Object.values(tooltipSheet[0].cssRules);
     return cssRules.filter((cssRule) => cssRule.selectorText === selector);
   }
