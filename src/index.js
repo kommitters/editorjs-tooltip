@@ -275,7 +275,7 @@ export default class Tooltip {
     this.tooltipInput.placeholder = this.placeholder;
     this.tooltipInput.classList.add(this.api.styles.input);
     this.tooltipInput.classList.add(this.CSS.input);
-    if (this.spanTooltip && this.spanTooltip.dataset.tooltip) {
+    if (this.spanTooltip?.dataset?.tooltip) {
       const tooltipStored = this.spanTooltip.dataset.tooltip;
       this.tooltipInput.value = tooltipStored;
     }
