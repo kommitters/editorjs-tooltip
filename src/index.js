@@ -54,7 +54,6 @@ export default class Tooltip {
       underline: 'tooltip-tool__underline',
     };
     this.tooltipsObserver();
-    if (this.backgroundColor || this.textColor) this.customTooltip();
   }
 
   /**
@@ -200,6 +199,7 @@ export default class Tooltip {
    */
 
   render() {
+    if (this.backgroundColor || this.textColor) this.customTooltip();
     this.button = document.createElement('button');
     this.button.type = 'button';
     this.button.innerHTML = tooltipIcon;
@@ -275,7 +275,7 @@ export default class Tooltip {
     this.tooltipInput.placeholder = this.placeholder;
     this.tooltipInput.classList.add(this.api.styles.input);
     this.tooltipInput.classList.add(this.CSS.input);
-    if (this.spanTooltip) {
+    if (this.spanTooltip && this.spanTooltip.dataset.tooltip) {
       const tooltipStored = this.spanTooltip.dataset.tooltip;
       this.tooltipInput.value = tooltipStored;
     }
