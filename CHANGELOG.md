@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.1 (20.03.2024)
+
+* Solve security vulnerabilities. See [PR #126](https://github.com/kommitters/editorjs-tooltip/pull/126)
+* Fix bug: Doesn't work with EditorJS 2.29.0. See [Issue #112](https://github.com/kommitters/editorjs-tooltip/issues/122)
+
 ## 1.2.0 (19.02.2024)
 
 * Add a new optional `placeholder` configuration param to the plugin. Default value is `Add a tooltip`.
