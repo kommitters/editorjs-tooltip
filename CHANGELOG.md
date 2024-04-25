@@ -1,5 +1,8 @@
 # Changelog
 
+# 1.2.2 (25.04.2024)
+* Add stale issues policy. See [PR #127](https://github.com/kommitters/editorjs-tooltip/pull/127)
+
 ## 1.2.1 (20.03.2024)
 
 * Solve security vulnerabilities. See [PR #126](https://github.com/kommitters/editorjs-tooltip/pull/126)
