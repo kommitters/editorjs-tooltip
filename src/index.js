@@ -35,6 +35,7 @@ export default class Tooltip {
     this.button = null;
     this._state = false;
     this.spanTooltip = null;
+    this.eventListenerAdded = false;
 
     const { location = 'bottom' } = config;
     this.tooltipLocation = location;
@@ -289,13 +290,35 @@ export default class Tooltip {
    */
   showActions() {
     this.tooltipInput.hidden = false;
-    this.api.listeners.on(this.tooltipInput, 'keydown', (e) => {
+    
+    // Remove any existing event listener to prevent duplicates
+    if (this.eventListenerAdded && this.tooltipInputHandler) {
+      this.api.listeners.off(this.tooltipInput, 'keydown', this.tooltipInputHandler);
+    }
+
+    // Create a bound handler function
+    this.tooltipInputHandler = (e) => {
       if (e.key === 'Enter') {
+        e.preventDefault();
+        e.stopPropagation();
         const tooltipValue = this.tooltipInput.value;
         this.createTooltip(tooltipValue);
         this.closeToolbar();
       }
-    }, false);
+    };
+
+    // Add the event listener
+    this.api.listeners.on(this.tooltipInput, 'keydown', this.tooltipInputHandler, false);
+    this.eventListenerAdded = true;
+
+    // Focus the input with a small delay to ensure it's visible
+    setTimeout(() => {
+      if (this.tooltipInput) {
+        this.tooltipInput.focus();
+        // Move cursor to end of input
+        this.tooltipInput.setSelectionRange(this.tooltipInput.value.length, this.tooltipInput.value.length);
+      }
+    }, 10);
   }
 
   /**
@@ -303,6 +326,12 @@ export default class Tooltip {
    */
   hideActions() {
     this.tooltipInput.hidden = true;
+    
+    // Clean up event listener when hiding
+    if (this.eventListenerAdded && this.tooltipInputHandler) {
+      this.api.listeners.off(this.tooltipInput, 'keydown', this.tooltipInputHandler);
+      this.eventListenerAdded = false;
+    }
   }
 
   /**
@@ -310,7 +339,19 @@ export default class Tooltip {
    */
   closeToolbar() {
     const toolbar = document.querySelector('.ce-inline-toolbar--showed');
-    toolbar.classList.remove('ce-inline-toolbar--showed');
+    if (toolbar) {
+      toolbar.classList.remove('ce-inline-toolbar--showed');
+    }
+  }
+
+  /**
+   * Clear method to clean up event listeners when tool is destroyed
+   */
+  clear() {
+    if (this.eventListenerAdded && this.tooltipInputHandler && this.tooltipInput) {
+      this.api.listeners.off(this.tooltipInput, 'keydown', this.tooltipInputHandler);
+      this.eventListenerAdded = false;
+    }
   }
 
   /**
